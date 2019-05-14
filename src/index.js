@@ -5,6 +5,7 @@
 import React from 'react'; //find folder in node_modules
 import ReactDOM from 'react-dom';
 import faker from 'faker';
+import CommentDetail from './CommentDetail';
 
 // Create a React component (function-based component)
 // Use babeljs.io/ to see how JSX gets compiled
@@ -29,21 +30,27 @@ const App = () => { // () => { replaces function() {
 		</div>*/
 
 		// Comments container
+		// Use <CommentDetail> not in curly braces because putting a component inside of 
+		// another component
 		<div className="ui container comments">
-			<div className="comment">
-				<a href="/" className="avatar">
-					<img alt="avatar" src={faker.image.avatar()}/>
-				</a>
-				<div className="content">
-					<a href="/" className="author">
-						Sam
-					</a>
-				</div>
-				<div className="metadata">
-					<span className="date">Today at 6:00 PM</span>
-				</div>
-				<div className="text">Nice blog post!</div>
-			</div>
+			<CommentDetail 
+				author="Sam" 
+				timePosted="Today at 4:45 PM"
+				text="Such a great idea!"
+				avatar = {faker.image.avatar()}
+			/>
+			<CommentDetail 
+				author="Alex" 
+				timePosted="Today at 8:43 AM"
+				text="Whoa! That's awesome!"
+				avatar = {faker.image.avatar()}
+			/>
+			<CommentDetail 
+				author="Jane" 
+				timePosted="Yesterday at 5:20 PM"
+				text="Love it!"
+				avatar = {faker.image.avatar()}
+			/>
 		</div>
 	);
 };
