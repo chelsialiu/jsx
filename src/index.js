@@ -6,6 +6,7 @@ import React from 'react'; //find folder in node_modules
 import ReactDOM from 'react-dom';
 import faker from 'faker';
 import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
 // Create a React component (function-based component)
 // Use babeljs.io/ to see how JSX gets compiled
@@ -33,24 +34,37 @@ const App = () => { // () => { replaces function() {
 		// Use <CommentDetail> not in curly braces because putting a component inside of 
 		// another component
 		<div className="ui container comments">
-			<CommentDetail 
-				author="Sam" 
-				timePosted="Today at 4:45 PM"
-				text="Such a great idea!"
-				avatar = {faker.image.avatar()}
-			/>
-			<CommentDetail 
-				author="Alex" 
-				timePosted="Today at 8:43 AM"
-				text="Whoa! That's awesome!"
-				avatar = {faker.image.avatar()}
-			/>
-			<CommentDetail 
-				author="Jane" 
-				timePosted="Yesterday at 5:20 PM"
-				text="Love it!"
-				avatar = {faker.image.avatar()}
-			/>
+			<ApprovalCard>
+				<div>
+					<h4>WARNING!</h4>
+					Are you sure you want to do this?
+				</div>
+			</ApprovalCard>
+
+			<ApprovalCard>
+				<CommentDetail 
+					author="Sam" 
+					timePosted="Today at 4:45 PM"
+					text="Such a great idea!"
+					avatar = {faker.image.avatar()}
+				/>
+			</ApprovalCard>
+			<ApprovalCard>
+				<CommentDetail 
+					author="Alex" 
+					timePosted="Today at 8:43 AM"
+					text="Whoa! That's awesome!"
+					avatar = {faker.image.avatar()}
+				/>
+			</ApprovalCard>
+			<ApprovalCard>
+				<CommentDetail 
+					author="Jane" 
+					timePosted="Yesterday at 5:20 PM"
+					text="Love it!"
+					avatar = {faker.image.avatar()}
+				/>
+			</ApprovalCard>
 		</div>
 	);
 };
